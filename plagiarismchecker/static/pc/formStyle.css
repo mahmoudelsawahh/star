@@ -1,0 +1,85 @@
+.form-text-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.form-text-control textarea {
+  width: 100%;
+  margin: 0px 5px;
+  padding: 5px 10px;
+  outline: none;
+}
+.form-text-control input {
+  width: 100%;
+  margin: 10px 5px;
+}
+.handel-text {
+  width: 100%;
+  background-color: #1806b9cc;
+  color: #fff;
+  padding: 10px 15px;
+  margin: 15px 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.handel-text:hover {
+  background-color: #5d0cade6;
+  color: #fff;
+  transition: 1s ease-in-out;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -ms-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+}
+.handel-result {
+  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, #740fd6e6 100%);
+  color: #fff;
+  padding: 10px 15px;
+  width: 100%;
+  margin: 15px 0px;
+  border: none;
+  outline: none;
+  font-size: 22px;
+  font-weight: bold;
+}
+.btn-controler {
+  margin-top: 20px;
+}
+/* --------------------------------------------------- */
+.highlightText {
+  width: 100%;
+  outline: none;
+}
+.input-highlight,
+.selcetOption {
+  padding: 15px;
+  margin: 10px 0px;
+  outline: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+.handelClear {
+  background-color: #5d0cade6;
+  color: #fff;
+  width: 100%;
+  padding: 10px 15px;
+  margin: 15px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 1s ease-in-out;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -ms-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+}
+.handelClear:hover {
+  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, #740fd6e6 100%);
+  color: #fff;
+}
+.selcetOption {
+  width: 12%;
+  background-color: #5d0cade6;
+  color: #fff;
+  cursor: pointer;
+}

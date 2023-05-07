@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Txt-Detection</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="../../static/pc/img/favicon.png" rel="icon" />
+    <link
+      href="../../static/pc/img/apple-touch-icon.png"
+      rel="apple-touch-icon"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="../../static/pc/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="./../static/pc/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./../static/pc/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./../static/pc/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./../static/pc/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./../static/pc/vendor/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Template Main CSS File -->
+    <link href="./../static/pc/css/style.css" rel="stylesheet" />
+    <link href="../../static/pc/formStyle.css" rel="stylesheet" />
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"
+    integrity="sha512-ml/QKfG3+Yes6TwOzQb7aCNtJF4PUyha6R3w8pSTo/VJSywl7ZreYvvtUso7fKevpsI+pYVVwnu82YO0q3V6eg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <style>
+    .afterupload {
+      display: none;
+    }
+    .another {
+      display: none;
+    }
+  </style>
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center justify-content-between">
+        <h1 class="logo"><a href="/">Txt-Detection</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto" href="#services">Services</a></li>
+
+            <li class="dropdown">
+              <a href="#"
+                ><span>plagiarisms</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li><a href="/compare">Text-Checker</a></li>
+                <li><a href="/text-highlighter">Text Highlighter</a></li>
+                <li><a href="/text-editor">Text Editor</a></li>
+                <li><a href="/tools-files">Convert PDF To Text</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            <li>
+              <a class="getstarted scrollto" href="#about">Get Started</a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center" style="height: 250px">
+      <div class="container-fluid" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div
+            class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
+          >
+            <h1 style="text-align: center; font-size: 35px">
+            Convert Pdf To Text
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <section>
+        <div class="container">
+          <div class="pdfwork">
+            <button class="another btn btn-danger" style="width: 100%;margin-bottom: 30px; padding: 9px;font-size: 18;font-weight: bold;" onclick="location.reload()">
+              Extract Another PDF
+            </button>
+           <div style="text-align: center; margin: 30px 0px;">
+            <input type="file" class="selectpdf" />
+           </div>
+            <span style="display: none;">Password :</span>
+            <input style="display: none;" type="password" class="pwd" placeholder="optional" />
+            <button class="upload btn btn-primary"
+             style="width: 100%; padding: 9px;font-size: 18;font-weight: bold;"
+             >Upload</button>
+            <div class="afterupload">
+             <div style="width: 100%;margin-top: 15px;">
+              <a href="" class="download btn btn-success" 
+              style="width: 100%; padding: 9px;font-size: 18;font-weight: bold;"
+              download>Download Pdf Text</a>
+              <textarea class="pdftext"  style="width: 100%; min-height: 400px; margin-top: 20px;"></textarea>
+              <div style="text-align: end;">
+                <span>Select Page</span>
+                <select class="selectpage" onchange="afterProcess()"></select>
+              </div>
+             </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-lg-6 order-1 order-lg-2"
+              data-aos="zoom-in"
+              data-aos-delay="150"
+            >
+              <img
+                src="./../static/pc/img/about.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <div
+              class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content"
+              data-aos="fade-right"
+            >
+              <h3>ABOUT US</h3>
+              <p class="fst-italic">
+                Text processing is a suite of collaboration and productivity
+                tools that help individuals, teams, and businesses get things
+                done. It provides a flexible and innovative solution based on
+                the Python language for text detection and uses a set of
+                algorithms, the most important of which is the plagiarism
+                checker.
+              </p>
+              <ul>
+                <li>
+                  <i class="bi bi-check-circle"></i> Safe and smart email text
+                  detection service using artificial intelligence.
+                </li>
+                <li>
+                  <i class="bi bi-check-circle"></i>A secure and private text
+                  detection service.
+                </li>
+                <li>
+                  <i class="bi bi-check-circle"></i> We do not use This content
+                  is strictly for no advertising purposes. .
+                </li>
+              </ul>
+              <a href="#" class="read-more"
+                >Read More <i class="bi bi-long-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End About Section -->
+
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Services</h2>
+            <p>
+              Txt-detetion is a source code plagiarism detection tool for
+              programming exercises. Txt-detetion helps teachers in discovering
+              student sharing solutions, even if they are modified. By providing
+              interactive visualizations, Txt-detetion can also be used to
+              sensitize students to prevent plagiarism.
+            </p>
+          </div>
+
+          <div class="row gy-4">
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div class="icon-box iconbox-blue">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"
+                    ></path>
+                  </svg>
+                  <i class="bx bxl-dribbble"></i>
+                </div>
+                <h4><a href="">Compatible </a></h4>
+                <p>
+                  Compatible with other files that have the extension txt , docx
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="icon-box iconbox-orange">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"
+                    ></path>
+                  </svg>
+                  <i class="bx bx-file"></i>
+                </div>
+                <h4><a href="">internet</a></h4>
+                <p>
+                  You must be connected to the Internet if you want to use this
+                  product
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="icon-box iconbox-pink">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"
+                    ></path>
+                  </svg>
+                  <i class="bx bx-tachometer"></i>
+                </div>
+                <h4><a href="">Used on any device</a></h4>
+                <p>
+                  Enjoy the simplicity and ease of Txt-detetion, wherever you
+                  are
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div class="icon-box iconbox-yellow">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813"
+                    ></path>
+                  </svg>
+                  <i class="bx bx-layer"></i>
+                </div>
+                <h4><a href="">Compare text</a></h4>
+                <p>
+                  Txt-detetion will compare text to find the difference between
+                  two text files. Just paste your files and click Find
+                  Difference
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="icon-box iconbox-red">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"
+                    ></path>
+                  </svg>
+                  <i class="bx bx-slideshow"></i>
+                </div>
+                <h4><a href="">Compare Files</a></h4>
+                <p>
+                  compare Files have extensions (txt , docx) to find the
+                  difference between two text files.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="icon-box iconbox-teal">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,566.797414625762C385.7384707136149,576.1784315230908,478.7894351017131,552.8928747891023,531.9192734346935,484.94944893311C584.6109503024035,417.5663521118492,582.489472248146,322.67544863468447,553.9536738515405,242.03673114598146C529.1557734026468,171.96086150256528,465.24506316201064,127.66468636344209,395.9583748389544,100.7403814666027C334.2173773831606,76.7482773500951,269.4350130405921,84.62216499799875,207.1952322260088,107.2889140133804C132.92018162631612,134.33871894543012,41.79353780512637,160.00259165414826,22.644507872594943,236.69541883565114C3.319112789854554,314.0945973066697,72.72355303640163,379.243833228382,124.04198916343866,440.3218312028393C172.9286146004772,498.5055451809895,224.45579914871206,558.5317968840102,300,566.797414625762"
+                    ></path>
+                  </svg>
+                  <i class="bx bx-arch"></i>
+                </div>
+                <h4><a href="">Texthigh-Lighter</a></h4>
+                <p>
+                  highlight search results in a textarea while maintaining the
+                  area's functionality.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Services Section -->
+
+      <!-- ======= Features Section ======= -->
+      <section id="features" class="features">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Features</h2>
+            <p>
+              Use this class if you need to highlight search results or any text
+              in a text area. Its use is very straightforward, create a class
+              for the textarea you need and call the find method to tag the text
+              you pass in the first argument. The second argument is optional
+              and takes a boolean value if true it will make the search case
+              sensitive. The default is case insensitive.
+            </p>
+          </div>
+
+          <div class="row">
+            <div
+              class="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center"
+            >
+              <div
+                class="icon-box mt-5 mt-lg-0"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
+                <i class="bx bx-receipt"></i>
+                <h4>AUTOMATE QUALITY INSPECTIONS</h4>
+                <p>
+                  Improve the speed and accuracy of your quality process by
+                  checking content as it moves through your workflow.
+                </p>
+              </div>
+              <div
+                class="icon-box mt-5"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                <i class="bx bx-cube-alt"></i>
+                <h4>ELIMINATE ERRORS</h4>
+                <p>
+                  Catch errors as soon as they appear by pinpointing exact
+                  differences between files, no matter how small.
+                </p>
+              </div>
+              <div
+                class="icon-box mt-5"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <i class="bx bx-images"></i>
+                <h4>Regulatory</h4>
+                <p>
+                  Ensure copy documents are accurate for internal reviews and
+                  regulatory submissions.
+                </p>
+              </div>
+              <div
+                class="icon-box mt-5"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <i class="bx bx-shield"></i>
+                <h4>Compliance & Certifications</h4>
+                <p>
+                  Txt-DETECTION is committed to ensuring that our software and
+                  systems are certified and compliant with requirements for use
+                </p>
+              </div>
+            </div>
+            <div
+              class="image col-lg-6 order-1 order-lg-2"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <img
+                src="./../static/pc/img/features.svg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Features Section -->
+
+      <!-- ======= Frequently Asked Questions Section ======= -->
+      <section id="faq" class="faq">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>
+              text reuse detection tool. Given a pair of texts or directories of
+              texts, it will find similar text between them. This is good for
+              detection of text reuses such as citation, quotation,
+              intertextuality, and plagiarism.
+            </p>
+          </div>
+
+          <div class="faq-list">
+            <ul>
+              <li data-aos="fade-up" data-aos="fade-up" data-aos-delay="100">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a
+                  data-bs-toggle="collapse"
+                  class="collapse"
+                  data-bs-target="#faq-list-1"
+                  >What is Automated Quality Control?
+                  <i class="bx bx-chevron-down icon-show"></i
+                  ><i class="bx bx-chevron-up icon-close"></i
+                ></a>
+                <div
+                  id="faq-list-1"
+                  class="collapse show"
+                  data-bs-parent=".faq-list"
+                >
+                  <p>
+                    Automated quality control enables businesses to run digital
+                    quality inspections on hardcopy samples and digital files,
+                    eliminating the need for manual proofreading. With automated
+                    quality control, users can automatically compare sample
+                    files against approved content to immediately detect any
+                    differences between the two.
+                  </p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="200">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-list-2"
+                  class="collapsed"
+                  >How can TXT-DETECTION help my business?
+                  <i class="bx bx-chevron-down icon-show"></i
+                  ><i class="bx bx-chevron-up icon-close"></i
+                ></a>
+                <div
+                  id="faq-list-2"
+                  class="collapse"
+                  data-bs-parent=".faq-list"
+                >
+                  <p>
+                    There are several benefits to using TXT-DETECTION automated
+                    quality control tools for your business.
+                  </p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="300">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-list-3"
+                  class="collapsed"
+                  >How do I get started with TXT-DETECTION?
+                  <i class="bx bx-chevron-down icon-show"></i
+                  ><i class="bx bx-chevron-up icon-close"></i
+                ></a>
+                <div
+                  id="faq-list-3"
+                  class="collapse"
+                  data-bs-parent=".faq-list"
+                >
+                  <p>
+                    This platform is 100% free. Just go to the plagiarisms page
+                    and choose the right tool for you
+                  </p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="400">
+                <i class="bx bx-help-circle icon-help"></i>
+                <a
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-list-4"
+                  class="collapsed"
+                  >If I want to use TXT-DETECTION for work or my business?
+                  <i class="bx bx-chevron-down icon-show"></i
+                  ><i class="bx bx-chevron-up icon-close"></i
+                ></a>
+                <div
+                  id="faq-list-4"
+                  class="collapse"
+                  data-bs-parent=".faq-list"
+                >
+                  <p>
+                    No, because we do not provide this content for any
+                    advertising purpose, it is free, and there is no way to
+                    profit through this page.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- End Frequently Asked Questions Section -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p>
+              In the event of a problem with the site or would like to inquire
+              about anything or For support, contact us and a TXT-DETECTION team
+              representative will be in touch.
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="info-box mb-4">
+                <i class="bx bx-map"></i>
+                <h3>Our Address</h3>
+                <p>
+                  Higher Institute of Engineering and Technology, Kafr El-Sheikh
+                  ,Egypt
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box mb-4">
+                <i class="bx bx-envelope"></i>
+                <h3>Email Us</h3>
+                <p>txt@detection.com</p>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box mb-4">
+                <i class="bx bx-phone-call"></i>
+                <h3>Call Us</h3>
+                <p>+2010012345678</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <iframe
+                class="mb-4 mb-lg-0"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3416.010014902279!2d30.965618584340014!3d31.109453681507425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7ab658126b31f%3A0xdc1d105344d26923!2z2KfZhNmF2LnZh9ivINin2YTYudin2YTZiiDZhNmE2KXYr9in2LHZhyDZiNiq2YPZhtmI2YTZiNis2YrYpyDYp9mE2YXYudmE2YjZhdin2Ko!5e0!3m2!1sar!2seg!4v1681168986887!5m2!1sar!2seg" 
+                frameborder="0"
+                style="border: 0; width: 100%; height: 384px"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <div class="col-lg-6">
+              <form
+                action="forms/contact.php"
+                method="post"
+                role="form"
+                class="php-email-form"
+              >
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      id="name"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    rows="5"
+                    placeholder="Message"
+                    required
+                  ></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h3>TXT-DETECTION</h3>
+              <p>
+                Higher Institute of <br />Engineering and Technology,<br />
+                Kafr El-Sheikh ,Egypt
+
+                <strong>Phone:</strong> +201234567894<br />
+                <strong>Email:</strong> info@txt.com<br />
+              </p>
+            </div>
+
+            <div class="col-lg-2 col-md-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">plagiarisms</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Text-Checker</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Documents-plagiarisms</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              <h4>Support</h4>
+              <p>contact us if you have any problem</p>
+              <form action="" method="post">
+                <input type="email" name="email" /><input
+                  type="submit"
+                  value="Support"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright-wrap d-md-flex py-4">
+          <div class="me-md-auto text-center text-md-start">
+            <div class="copyright">
+              &copy; Copyright <strong><span>TXT-DETECTION</span></strong
+              >. All Rights Reserved
+            </div>
+            <div class="credits">
+              Designed by
+              <a href="https://bootstrapmade.com/">TXT-DETECTION Team</a>
+            </div>
+          </div>
+          <div class="social-links text-center text-md-right pt-3 pt-md-0">
+            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+    <div id="preloader"></div>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
+      let pdfinput = document.querySelector(".selectpdf");
+      let pwd = document.querySelector(".pwd");
+      let upload = document.querySelector(".upload");
+      let afterupload = document.querySelector(".afterupload");
+      let select = document.querySelector("select");
+      let download = document.querySelector(".download");
+      let pdftext = document.querySelector(".pdftext");
+      upload.addEventListener("click", () => {
+        let file = pdfinput.files[0];
+        if (file != undefined && file.type == "application/pdf") {
+          let fr = new FileReader();
+          fr.readAsDataURL(file);
+          fr.onload = () => {
+            let res = fr.result;
+            if (pwd.value == "") {
+              extractText(res, false);
+            } else {
+              extractText(res, true);
+            }
+          };
+        } else {
+          alert("select a valid pdf file");
+        }
+      });
+      let alltext = [];
+      async function extractText(url, pass) {
+        try {
+          let pdf;
+          if (pass) {
+            pdf = await pdfjsLib.getDocument({ url: url, password: pwd.value })
+              .promise;
+          } else {
+            pdf = await pdfjsLib.getDocument(url).promise;
+          }
+          let pages = pdf.numPages;
+          for (let i = 1; i <= pages; i++) {
+            let page = await pdf.getPage(i);
+            let txt = await page.getTextContent();
+            let text = txt.items.map((s) => s.str).join("");
+            alltext.push(text);
+          }
+          alltext.map((e, i) => {
+            select.innerHTML += `
+                <option value="${i + 1}">${i + 1}</option>
+                `;
+          });
+          afterProcess();
+        } catch (err) {
+          alert(err.message);
+        }
+      }
+
+      function afterProcess() {
+        pdftext.value = alltext[select.value - 1];
+        download.href =
+          "data:text/plain;charset=utf-8," +
+          encodeURIComponent(alltext[select.value - 1]);
+        afterupload.style.display = "flex";
+        document.querySelector(".another").style.display = "unset";
+      }
+    </script>
+
+    <!-- Vendor JS Files -->
+    <script src="./../static/pc/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="./../static/pc/vendor/aos/aos.js"></script>
+    <script src="./../static/pc/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./../static/pc/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="./../static/pc/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="./../static/pc/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="./../static/pc/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="./../static/pc/js/main.js"></script>
+  </body>
+</html>
